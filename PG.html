@@ -56,6 +56,13 @@
     </style>    
 
     <script>
+            let estados = [false,false,false,false];
+
+            function cambiarEstado(boton)
+            {
+                estados[boton] = !estados[boton];
+            }
+
             function getLon()
             {
                 var lon = document.getElementById("slide").value;
@@ -82,10 +89,10 @@
     </div>
 
     <div id="botonera">
-        <button id="minusculas" class="caracteristica">ab</button>
-        <button id="mayusculas" class="caracteristica">AB</button>
-        <button id="numeros" class="caracteristica">0-9</button>
-        <button id="simbolos" class="caracteristica">/*+@</button>
+        <button onclick="cambiarEstado(0);" id="minusculas" class="caracteristica">ab</button>
+        <button onclick="cambiarEstado(1);" id="mayusculas" class="caracteristica">AB</button>
+        <button onclick="cambiarEstado(2);" id="numeros" class="caracteristica">0-9</button>
+        <button onclick="cambiarEstado(3);" id="simbolos" class="caracteristica">/*+@</button>
     </div>
     
     <div id="divSlide">
