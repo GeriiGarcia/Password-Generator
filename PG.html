@@ -10,11 +10,6 @@
 
         body{
             text-align: center;
-            
-        }
-
-        #divTitulo{
-            
         }
 
         div{
@@ -31,7 +26,6 @@
             color: #000000;
             text-align: center;
             border: none;
-          
         }
 
         input {
@@ -40,7 +34,6 @@
 
         #divSlide{
             display: inline-flex;
-            /*background-color: aqua;*/
             margin: -15px auto;
         }
 
@@ -81,7 +74,6 @@
             width: max-content;
             border-radius: 10px;
             display: initial;
-
         }
 
         #divGenerar{
@@ -114,7 +106,6 @@
 
         window.onload = function iniciar() {
             
-            
         }
 
         function animacionCopiar(){
@@ -125,7 +116,6 @@
                 document.getElementById('copiar').style.color = "#000000";
                
             }, 1500);
-            
         }
 
         function copiar(){
@@ -171,7 +161,6 @@
         function cambiarEstado(boton)
         {
             estados[boton] = !estados[boton];
-            //aqui hacer un switch para cambiar el fondo de cada boton al ser clickado
 
             if(estados[boton])
                 document.getElementById(idBotones[boton]).style.backgroundColor = "#77dd77";
@@ -201,155 +190,152 @@
         }
 
         function escoger(num, numTrue, valor)
-            {
-                let tryButton = num % numTrue;
+        {
+            let tryButton = num % numTrue;
 
-                switch (valor) {
-                    case 1:
+            switch (valor) {
+                case 1:
+                    return getRandabc();
+                    break;
+
+                case 2:
+                    return getRandABC();
+                    break;
+
+                case 3:
+                    if(tryButton == 0)
                         return getRandabc();
-                        break;
-                    case 2:
+                    else
                         return getRandABC();
-                        break;
+                    break; 
 
-                    case 3:
-                        if(tryButton == 0)
-                            return getRandabc();
-                        else
-                            return getRandABC();
-                        break; 
-
-                    case 4:
+                case 4:
+                    return getRandNUMS();
+                    break;
+                
+                case 5:
+                    if(tryButton == 0)
+                        return getRandabc();
+                    else
                         return getRandNUMS();
-                        break;
-                    
-                    case 5:
-                        if(tryButton == 0)
-                            return getRandabc();
-                        else
-                            return getRandNUMS();
+                    break;
 
-                        break;
+                case 6:
+                    if(tryButton == 0)
+                        return getRandABC();
+                    else
+                        return getRandNUMS();
+                    break;
 
-                    case 6:
-                        if(tryButton == 0)
-                            return getRandABC();
-                        else
-                            return getRandNUMS();
-                        break;
+                case 7:
+                    if(tryButton == 0)
+                        return getRandabc();
+                    else if(tryButton == 1)
+                        return getRandABC();
+                    else
+                        return getRandNUMS();
+                    break;
 
-                    case 7:
-                        if(tryButton == 0)
-                            return getRandabc();
-                        else if(tryButton == 1)
-                            return getRandABC();
-                        else
-                            return getRandNUMS();
-                        break;
+                case 8:
+                    return getRandSIGNOS();
+                    break;
 
-                    case 8:
+                case 9:
+                    if(tryButton == 0)
+                        return getRandabc();
+                    else
                         return getRandSIGNOS();
-                        break;
+                    break;
 
-                    case 9:
-                        if(tryButton == 0)
-                            return getRandabc();
-                        else
-                            return getRandSIGNOS();
-                        break;
+                case 10:
+                    if(tryButton == 0)
+                        return getRandABC();
+                    else
+                        return getRandSIGNOS();
+                    break;
 
-                    case 10:
-                        if(tryButton == 0)
-                            return getRandABC();
-                        else
-                            return getRandSIGNOS();
-                        break;
+                case 11:
+                    if(tryButton == 0)
+                        return getRandabc();
+                    else if(tryButton == 1)
+                        return getRandABC();
+                    else
+                        return getRandSIGNOS();
+                    break;
 
-                    case 11:
-                        if(tryButton == 0)
-                            return getRandabc();
-                        else if(tryButton == 1)
-                            return getRandABC();
-                        else
-                            return getRandSIGNOS();
-                        break;
+                case 12:
+                    if(tryButton == 0)
+                        return getRandNUMS();
+                    else
+                        return getRandSIGNOS();
+                    break;
 
-                    case 12:
-                        if(tryButton == 0)
-                            return getRandNUMS();
-                        else
-                            return getRandSIGNOS();
-                        break;
+                case 13:
+                    if(tryButton == 0)
+                        return getRandabc();
+                    else if(tryButton == 1)
+                        return getRandNUMS();
+                    else
+                        return getRandSIGNOS();
+                    break;
 
-                    case 13:
-                        if(tryButton == 0)
-                            return getRandabc();
-                        else if(tryButton == 1)
-                            return getRandNUMS();
-                        else
-                            return getRandSIGNOS();
-                        break;
-
-                    case 14:
-                        if(tryButton == 0)
-                            return getRandABC();
-                        else if(tryButton == 1)
-                            return getRandNUMS();
-                        else
-                            return getRandSIGNOS();
-                        break;
-
-                    case 15:
-                        if(tryButton == 0)
-                            return getRandabc();
-                        else if(tryButton == 1)
-                            return getRandABC();
-                        else if(tryButton == 2)
-                            return getRandNUMS();
-                        else
-                            return getRandSIGNOS();
-                        break;
-
-                    default:
-                        break;
-                }
-
+                case 14:
+                    if(tryButton == 0)
+                        return getRandABC();
+                    else if(tryButton == 1)
+                        return getRandNUMS();
+                    else
+                        return getRandSIGNOS();
+                    break;
+                    
+                case 15:
+                    if(tryButton == 0)
+                        return getRandabc();
+                    else if(tryButton == 1)
+                        return getRandABC();
+                    else if(tryButton == 2)
+                        return getRandNUMS();
+                    else
+                        return getRandSIGNOS();
+                    break;
             }
+
+        }
 
         function generate() //genero un numero aleatorio de getLon() de largo
+        {
+            //longitud del numero
+            var lonS = getLon();
+            var lon = parseInt(lonS);
+
+            //genero numero aleatorio
+            var vecNum = []
+            for (let i = 0; i < lon; i++) {
+                vecNum.push(Math.trunc(Math.random()*10));
+            }
+
+            //miro que botones estan pulsados
+            let valorPulsados = 0;
+            for (let i = 0; i < estados.length; i++) {
+                valorPulsados += estados[i]*valoresEstados[i];
+            }
+
+            if(valorPulsados == 0)
             {
-                //longitud del numero
-                var lonS = getLon();
-                var lon = parseInt(lonS);
-
-                //genero numero aleatorio
-                var vecNum = []
-                for (let i = 0; i < lon; i++) {
-                    vecNum.push(Math.trunc(Math.random()*10));
-                }
-
-                //miro que botones estan pulsados
-                let valorPulsados = 0;
-                for (let i = 0; i < estados.length; i++) {
-                    valorPulsados += estados[i]*valoresEstados[i];
-                }
-
-                if(valorPulsados == 0)
-                {
-                    alert("No hay ningun boton pulsado");
-                    document.getElementById("password").innerHTML = "Your password";
-                    return 0;
-                }
+                alert("No hay ningun boton pulsado");
+                document.getElementById("password").innerHTML = "Your password";
+                return 0;
+            }
 
                 //genero la contrasenya mediante escoger
-                var contrasenya = "";
-                for (let i = 0; i < vecNum.length; i++) {
-                    contrasenya += escoger(vecNum[i], getNumTrue(), valorPulsados)
-                }
-
-                document.getElementById("password").innerHTML = contrasenya;
-                
+            var contrasenya = "";
+            for (let i = 0; i < vecNum.length; i++) {
+                contrasenya += escoger(vecNum[i], getNumTrue(), valorPulsados)
             }
+
+            document.getElementById("password").innerHTML = contrasenya;
+                
+        }
 
     </script>
 </head>
