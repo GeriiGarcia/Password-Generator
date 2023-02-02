@@ -23,35 +23,75 @@
 
         .caracteristica{
             margin: auto 10px;
-            width: 70px;
-            box-shadow: none;
-            outline:none;
-            
+            width: 100px;
+            height: 50px;
+            background-color: #d8dbe0;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #000000;
+            text-align: center;
+            border: none;
+          
+        }
+
+        input {
+            display: none;
         }
 
         #divSlide{
             display: inline-flex;
             /*background-color: aqua;*/
-            margin: 0px auto;
+            margin: -15px auto;
         }
 
         #slide{
             margin: 10px 10px auto;
+            display: initial;
+        }
+
+        #copiar{
+            margin: auto 10px;
+            padding: 10px;
+            width: max-content;
+            height: 35px;
+            background-color: #d8dbe0;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #000000;
+            text-align: center;
+            border: none;
         }
 
         #textLargo{
             margin: 10px 10px auto;
         }
         
-        #divPassword
-        {
+        #divPassword{
             border-width: thin;
             border-color: black;
             border-style: solid;
             padding-left: 30px;
             padding-right: 30px;
-
             width: max-content;
+            border-radius: 10px;
+        }
+
+        #generar{
+            margin: auto 10px;
+            padding: 10px;
+            width: max-content;
+            height: 35px;
+            background-color: #d8dbe0;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #000000;
+            text-align: center;
+            border: none;
+            transition: 1s;
+        }
+
+        #generar:hover{
+            background-color: #77dd77;
         }
 
         
@@ -59,69 +99,96 @@
     </style>    
 
     <script>
+
+        window.onload = function iniciar() {
+            
+            
+        }
+
+        function animacionCopiar(){
+            document.getElementById('copiar').style.backgroundColor = "#77dd77";
+            document.getElementById('copiar').style.color = "#FFFFFF";
+            setTimeout(() => {
+                document.getElementById('copiar').style.backgroundColor = "#d8dbe0";
+                document.getElementById('copiar').style.color = "#000000";
+               
+            }, 1500);
+            
+        }
+
+        function copiar(){
+            var codigoACopiar = document.getElementById('password');
+            var seleccion = document.createRange();
+            seleccion.selectNodeContents(codigoACopiar);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(seleccion);
+            var res = document.execCommand('copy');
+            window.getSelection().removeRange(seleccion);
+            animacionCopiar();
+        }
            
-            let estados = [false,false,false,false];
-            const valoresEstados = [1,2,4,8];
-            const idBotones = ["minusculas","mayusculas", "numeros", "simbolos"]
+        let estados = [false,false,false,false];
+        const valoresEstados = [1,2,4,8];
+        const idBotones = ["minusculas","mayusculas", "numeros", "simbolos"]
 
-            const abc = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-            const ABC = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-            const NUMS = ['0','1','2','3','4','5','6','7','8','9']
-            const SIGNOS = ['!','@','#','_','*','¡','?']
+        const abc = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+        const ABC = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+        const NUMS = ['0','1','2','3','4','5','6','7','8','9']
+        const SIGNOS = ['!','@','#','_','*','¡','?']
 
-            function getRandabc()
+        function getRandabc()
+        {
+            return abc[Math.trunc(Math.random()*abc.length)];
+        }
+
+        function getRandABC()
+        {
+            return ABC[Math.trunc(Math.random()*ABC.length)];
+        }
+
+        function getRandNUMS()
+        {
+            return NUMS[Math.trunc(Math.random()*NUMS.length)];
+        }
+
+        function getRandSIGNOS()
+        {
+            return SIGNOS[Math.trunc(Math.random()*SIGNOS.length)];
+        }
+
+        function cambiarEstado(boton)
+        {
+            estados[boton] = !estados[boton];
+            //aqui hacer un switch para cambiar el fondo de cada boton al ser clickado
+
+            if(estados[boton])
+                document.getElementById(idBotones[boton]).style.backgroundColor = "#77dd77";
+            else
+                document.getElementById(idBotones[boton]).style.backgroundColor = "#d8dbe0";
+            
+        }
+
+        function getLon()
+        {
+            var lon = document.getElementById("slide").value;
+            document.getElementById("textLargo").innerHTML = lon;
+            return lon;
+        }
+
+        function getNumTrue()
+        {
+            let count = 0;
+
+            for(let i = 0; i < 4; i++)
             {
-                return abc[Math.trunc(Math.random()*abc.length)];
+                if(estados[i])
+                    count++;
             }
 
-            function getRandABC()
-            {
-                return ABC[Math.trunc(Math.random()*ABC.length)];
-            }
+            return count;
+        }
 
-            function getRandNUMS()
-            {
-                return NUMS[Math.trunc(Math.random()*NUMS.length)];
-            }
-
-            function getRandSIGNOS()
-            {
-                return SIGNOS[Math.trunc(Math.random()*SIGNOS.length)];
-            }
-
-            function cambiarEstado(boton)
-            {
-                estados[boton] = !estados[boton];
-                //aqui hacer un switch para cambiar el fondo de cada boton al ser clickado
-
-                if(estados[boton])
-                    document.getElementById(idBotones[boton]).style.backgroundColor = "#808080";
-                else
-                    document.getElementById(idBotones[boton]).style.backgroundColor = "#F1F1F1";
-                
-            }
-
-            function getLon()
-            {
-                var lon = document.getElementById("slide").value;
-                document.getElementById("textLargo").innerHTML = lon;
-                return lon;
-            }
-
-            function getNumTrue()
-            {
-                let count = 0;
-
-                for(let i = 0; i < 4; i++)
-                {
-                    if(estados[i])
-                        count++;
-                }
-
-                return count;
-            }
-
-            function escoger(num, numTrue, valor)
+        function escoger(num, numTrue, valor)
             {
                 let tryButton = num % numTrue;
 
@@ -237,7 +304,7 @@
 
             }
 
-            function generate() //genero un numero aleatorio de getLon() de largo
+        function generate() //genero un numero aleatorio de getLon() de largo
             {
                 //longitud del numero
                 var lonS = getLon();
@@ -258,6 +325,7 @@
                 if(valorPulsados == 0)
                 {
                     alert("No hay ningun boton pulsado");
+                    document.getElementById("password").innerHTML = "Your password";
                     return 0;
                 }
 
@@ -279,16 +347,42 @@
         <h1 id="Titulo">Password Generator</h1>
     </div>
 
+    <p></p>
+
     <div id="botonera">
-        <button onclick="cambiarEstado(0);" id="minusculas" class="caracteristica">ab</button>
-        <button onclick="cambiarEstado(1);" id="mayusculas" class="caracteristica">AB</button>
-        <button onclick="cambiarEstado(2);" id="numeros" class="caracteristica">0-9</button>
-        <button onclick="cambiarEstado(3);" id="simbolos" class="caracteristica">/*+@</button>
+        <button onclick="cambiarEstado(0)" id="minusculas" class="caracteristica">
+            <input type = 'checkbox'>
+            <span class = 'slider'></span>
+            abc
+        </button>
+        <button onclick="cambiarEstado(1)" id="mayusculas" class="caracteristica">
+            <input type = 'checkbox'>
+            <span class = 'slider'></span>
+            ABC
+        </button>
+        <button onclick="cambiarEstado(2)" id="numeros" class="caracteristica">
+            <input type = 'checkbox'>
+            <span class = 'slider'></span>
+            0-9
+        </button>
+        <button onclick="cambiarEstado(3)" id="simbolos" class="caracteristica">
+            <input type = 'checkbox'>
+            <span class = 'slider'></span>
+            !@#,_*¿?
+        </button>
+               
     </div>
+
+    <p>Longitud de la contraseña</p>
     
     <div id="divSlide">
         <input onclick="getLon();" id="slide" type="range" min="1" max="50" step="1" value="10">
         <p id="textLargo">10</p>
+        <button onclick="copiar()" id="copiar">
+            <input type = 'checkbox'>
+            <span class = 'slider'></span>
+            Copiar
+        </button>
     </div>
     
     
@@ -297,7 +391,11 @@
     </div>
 
     <div id="divGenerar">
-        <button onclick="generate();" id="generar">Generar</button>
+        <button onclick="generate()" id="generar">
+            <input type = 'checkbox'>
+            <span class = 'slider'></span>
+            Generar
+        </button>
     </div>
     
 </body>
