@@ -24,6 +24,9 @@
         .caracteristica{
             margin: auto 10px;
             width: 70px;
+            box-shadow: none;
+            outline:none;
+            
         }
 
         #divSlide{
@@ -58,7 +61,8 @@
     <script>
            
             let estados = [false,false,false,false];
-            let valoresEstados = [1,2,4,8];
+            const valoresEstados = [1,2,4,8];
+            const idBotones = ["minusculas","mayusculas", "numeros", "simbolos"]
 
             const abc = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
             const ABC = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -89,6 +93,12 @@
             {
                 estados[boton] = !estados[boton];
                 //aqui hacer un switch para cambiar el fondo de cada boton al ser clickado
+
+                if(estados[boton])
+                    document.getElementById(idBotones[boton]).style.backgroundColor = "#808080";
+                else
+                    document.getElementById(idBotones[boton]).style.backgroundColor = "#F1F1F1";
+                
             }
 
             function getLon()
