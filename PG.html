@@ -49,6 +49,10 @@
             display: initial;
         }
 
+        #textLargo{
+            margin: 10px 10px auto;
+        }
+
         #copiar{
             margin: auto 10px;
             padding: 10px;
@@ -60,20 +64,28 @@
             color: #000000;
             text-align: center;
             border: none;
+            display: initial;
         }
 
-        #textLargo{
-            margin: 10px 10px auto;
-        }
-        
         #divPassword{
+            display: flex;
+            width: max-content;
+        }
+
+        #password{
+            margin: auto 10px;
             border-width: thin;
             border-color: black;
             border-style: solid;
-            padding-left: 30px;
-            padding-right: 30px;
+            padding: 10px 30px 10px 30px;
             width: max-content;
             border-radius: 10px;
+            display: initial;
+
+        }
+
+        #divGenerar{
+            margin: -20px auto;
         }
 
         #generar{
@@ -378,6 +390,12 @@
     <div id="divSlide">
         <input onclick="getLon();" id="slide" type="range" min="1" max="50" step="1" value="10">
         <p id="textLargo">10</p>
+        
+    </div>
+    
+    
+    <div id="divPassword">
+        <p id="password">Your password </p>
         <button onclick="copiar()" id="copiar">
             <input type = 'checkbox'>
             <span class = 'slider'></span>
@@ -385,17 +403,13 @@
         </button>
     </div>
     
-    
-    <div id="divPassword">
-        <p id="password">Your password </p>
-    </div>
-
     <div id="divGenerar">
         <button onclick="generate()" id="generar">
             <input type = 'checkbox'>
             <span class = 'slider'></span>
             Generar
         </button>
+        
     </div>
     
 </body>
