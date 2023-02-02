@@ -53,13 +53,25 @@
 
         
 
-    </style>
-
-
-
+    </style>    
 
     <script>
+            function getLon()
+            {
+                var lon = document.getElementById("slide").value;
+                document.getElementById("textLargo").innerHTML = lon;
+                return lon;
+            }
 
+            function generate()
+            {
+                var lonS = getLon();
+                var lon = parseInt(lonS);
+                var rand = (Math.random()*Math.pow(10,lon));
+
+                var s = rand.toString(10);
+                alert(s);
+            }
 
     </script>
 </head>
@@ -77,7 +89,7 @@
     </div>
     
     <div id="divSlide">
-        <input id="slide" type="range" min="1" max="50" step="1">
+        <input onclick="getLon();" id="slide" type="range" min="1" max="50" step="1" value="10">
         <p id="textLargo">10</p>
     </div>
     
@@ -87,7 +99,7 @@
     </div>
 
     <div id="divGenerar">
-        <button id="generar">Generar</button>
+        <button onclick="generate();" id="generar">Generar</button>
     </div>
     
 </body>
