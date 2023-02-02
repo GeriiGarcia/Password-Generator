@@ -8,6 +8,11 @@
 
     <style>
 
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
         body{
             text-align: center;
         }
@@ -61,8 +66,9 @@
         }
 
         #divPassword{
-            display: flex;
+            
             width: max-content;
+            
         }
 
         #password{
@@ -96,7 +102,59 @@
 
         #generar:hover{
             background-color: #77dd77;
+            color: white;
         }
+
+        .encabezado {
+    background: #202020;
+    justify-content: space-around;
+    
+}
+
+    .encabezado nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        
+    }
+
+        .encabezado nav h1 {
+            text-align: center;
+            color: white;
+        }
+
+a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    padding: 12px 20px;
+    display: block;
+    text-align: center;
+}
+
+    a:hover {
+        background: #444444;
+    }
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.encabezado nav .menu li ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background: #202020;
+}
+
+.encabezado nav .menu li:hover ul {
+    display: flex;
+    position: absolute;
+} 
+
 
         
 
@@ -340,6 +398,27 @@
     </script>
 </head>
 <body>
+
+    <header class="encabezado">
+        <nav>
+            <h1>Gerard's Page</h1>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li>
+                    <a href="">Projects</a>
+                    <ul id="projects">
+                        <li><a href="calculator.html">Calculator</a></li>
+                        <li><a href="AgeCalculator.html">Age Calculator</a></li>
+                        <li><a href="DigitalClock.html">Digital Clock</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Contacto</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
 
     <div id="divTitulo">
         <h1 id="Titulo">Password Generator</h1>
